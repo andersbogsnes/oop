@@ -287,6 +287,9 @@ Used to **specialize** an existing class - we usually call this *subclassing*
 
 ----
 
+These are **specialized** versions of a SalesPerson and can have specific **behaviour**
+
+
 ```python
 class Phoner(SalesPerson):
     def call(self, telephone_number):
@@ -299,5 +302,36 @@ class TiedAgent(SalesPerson):
 
 ----
 
-These are **specialized** versions of a SalesPerson and can have specific **behaviour**
+Inherited classes still have access to its parents methods
 
+```python
+>>> mike = Phoner("Mike", 40, 2000)
+>>> mike.greet()
+"Hi, I'm Mike"
+```
+
+----
+
+We can also overwrite methods from the parent
+
+```python
+class Phoner(SalesPerson):
+    def greet(self):
+        print(f"Hi, I'm {self.name} and I'm a phoner")
+```
+
+----
+
+Or extend methods
+
+```python
+
+class Phoner(SalesPerson):
+    def __init__(self, name, age, sales_budget, phone_number):
+        super().__init__(name, age, sales_budget)
+        self.phone_number = phone_number
+
+>>> jane = Phoner(name="Jane", age=20, sales_budget=0, phone_number=35477777)
+>>> jane.phone_number
+35477777
+```
