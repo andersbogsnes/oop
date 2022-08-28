@@ -4,7 +4,7 @@
   "description": "Slides for OOP presentation",
   "main": "index.js",
   "dependencies": {
-    "reveal-md": "^4.1.2"
+    "reveal-md": "^5.3.4"
   },
   "devDependencies": {},
   "scripts": {
